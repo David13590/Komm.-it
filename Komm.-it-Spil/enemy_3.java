@@ -5,24 +5,8 @@ public class enemy_3 extends Actor
     int time;
     public void act()
     {
-        death();
         movement();
         dance();
-    }
-    
-    public void death()
-    {
-        Actor bullet;
-        Actor enemy_3;
-        bullet = getOneObjectAtOffset(0, 0, bullet.class);
-        enemy_3 = getOneObjectAtOffset(0, 0, enemy_3.class);
-        if (bullet != enemy_3)
-        {
-            World world;
-            world = getWorld();
-            world.removeObject(bullet);
-            world.removeObject(this);
-        }
     }
     
     public void movement()

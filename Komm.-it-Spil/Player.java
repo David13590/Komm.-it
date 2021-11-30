@@ -9,7 +9,7 @@ public class Player extends Actor
     //public int dmg = 1;
     private int enemykill;
     private int spawnCounter;
-    
+   
     
     public Player()
     {
@@ -91,14 +91,14 @@ public class Player extends Actor
             
         enemy = getOneObjectAtOffset(250, 250, enemy_bullet.class);
         bullet = getOneObjectAtOffset(0, 0, bullet.class);
-        if (bullet != enemy)
+        if (bullet == enemy)
         {
             World world;  
             world = getWorld();  
             world.removeObject(enemy);
             world.removeObject(bullet);
             //score++;
-            spawnCounter++;
+            //spawnCounter++;
         }
     }
     
@@ -110,25 +110,22 @@ public class Player extends Actor
             spawnCounter = 0;
         }
     }
-    
-    /*
-    public void hit()
+    /* 
+    public boolean isInRange(Actor actor)
     {
-        hp = hp - myenemy_bullet.bulletdmg;
-        if (hp == 0);
-        {
-            Greenfoot.stop();
-        }
+        return getObjectsInRange(myenemy_bullet, Actor.class).contains(actor);
     }
-    */
-   
+   */
     public void checkCollision()
-       {
-        enemy_bullet myenemy_bullet = (enemy_bullet)getOneIntersectingObject(enemy_bullet.class);
-        
-        if (myenemy_bullet != null)
+     {
+     enemy_bullet myenemy_bullet = (enemy_bullet)getOneIntersectingObject(enemy_bullet.class);
+     
+     Actor Player;
+     Player = getOneObjectAtOffset(0, 0, Player.class);
+        if (myenemy_bullet != Player)
         {   
             hp = hp - myenemy_bullet.getBulletDmg();
+            
         }
         
         if (hp == 0)
@@ -137,5 +134,5 @@ public class Player extends Actor
             world = getWorld();
             world.removeObject(this);
         }
-    }
+   }
 }

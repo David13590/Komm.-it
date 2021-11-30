@@ -1,1 +1,4 @@
 *.class
+*.bak
+*.html
+*.ctxt

@@ -9,36 +9,29 @@ public class enemy_bullet extends Actor
     {
         move(7);
         checkCollision();
-        
-        //Actor main;
-        //Actor enemy_bullet;
-        //Actor a;
-        
-        
-        //enemy_bullet = getOneObjectAtOffset(x, y, enemy_bullet.class);
-        //main = getOneObjectAtOffset(0, 0, Main.class);
-            
-        /*if (isAtEdge())
+           
+        if (isAtEdge())
         {
             getWorld().removeObject(this);
-        }*/
+            return;
+        }
     }
     
     public void checkCollision()
     {
-        Actor a = getOneIntersectingObject(Player.class);
+        Actor Player = getOneIntersectingObject(Player.class);
           
         
-        if (a != null){   
+        if (Player != null){   
             if (hit == 0){
                 hit = 1;
             }
         }
-        if (a == null && hit == 1){
+        if (Player == null && hit == 1){
             World world;  
             world = getWorld();  
             world.removeObject(this);
-            
+            return;
         }
     }
     
@@ -48,7 +41,6 @@ public class enemy_bullet extends Actor
             bulletdmg = 0;
             return 1;
         }
-        
         else
         { 
             return 0;

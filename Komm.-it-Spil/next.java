@@ -10,7 +10,7 @@ public class next extends Actor
         Actor Main; 
         Actor next;
         //henter cordinaterne
-        Main = getOneObjectAtOffset(0, 0, Main.class);
+        Main = getOneObjectAtOffset(0, 0, Player.class);
         next = getOneObjectAtOffset(0, 0, next.class);
         
         move(x);

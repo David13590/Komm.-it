@@ -9,12 +9,13 @@ public class World1 extends World
     {    
         super(800, 800, 1); 
         spawn();
+        System.out.println("world1");
     }
     public void spawn()
 
     {
         addObject(new Player(),150,150);
-        
+        System.out.println("spawn");
         while (addenemy_1 < 1)
         {
             addObject(new enemy_1(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));

@@ -6,16 +6,11 @@ public class Player extends Actor
     private boolean readEnter = true;
     private Cooldown myCooldown;
     private int hp = 3;
-    //public int dmg = 1;
-    private int enemykill;
-    private int spawnCounter;
    
     
     public Player()
     {
         myCooldown = new Cooldown();
-        enemykill = 0;
-        spawnCounter = 0;
     }
     
     public void act()
@@ -24,7 +19,6 @@ public class Player extends Actor
         int x = getX();
         int y = getY();
         
-        checkCollision();
         
         if (Greenfoot.isKeyDown("a"))
         {
@@ -84,55 +78,4 @@ public class Player extends Actor
         bullet.move(55);
     }
     
-    public void score()
-    {
-        Actor enemy;
-        Actor bullet;
-            
-        enemy = getOneObjectAtOffset(250, 250, enemy_bullet.class);
-        bullet = getOneObjectAtOffset(0, 0, bullet.class);
-        if (bullet == enemy)
-        {
-            World world;  
-            world = getWorld();  
-            world.removeObject(enemy);
-            world.removeObject(bullet);
-            //score++;
-            //spawnCounter++;
-        }
-    }
-    
-    public void addNewEnemy()
-    {
-        if (spawnCounter == 1)
-        {
-            getWorld().addObject( new enemy_1(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));
-            spawnCounter = 0;
-        }
-    }
-    /* 
-    public boolean isInRange(Actor actor)
-    {
-        return getObjectsInRange(myenemy_bullet, Actor.class).contains(actor);
-    }
-   */
-    public void checkCollision()
-     {
-     enemy_bullet myenemy_bullet = (enemy_bullet)getOneIntersectingObject(enemy_bullet.class);
-     
-     Actor Player;
-     Player = getOneObjectAtOffset(0, 0, Player.class);
-        if (myenemy_bullet != Player)
-        {   
-            hp = hp - myenemy_bullet.getBulletDmg();
-            
-        }
-        
-        if (hp == 0)
-        {   
-            World world;
-            world = getWorld();
-            world.removeObject(this);
-        }
-   }
 }

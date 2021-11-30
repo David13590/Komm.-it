@@ -30,7 +30,6 @@ public class enemy_3 extends Actor
             enemyY = getY();
         }
         
-        
         if (PlayerX > enemyX)
         {
             setLocation(enemyX+1, enemyY);

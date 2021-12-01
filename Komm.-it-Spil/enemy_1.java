@@ -14,10 +14,6 @@ public class enemy_1 extends Actor
     public void movement()
     {
         move(1);
-        /*if (greenfoot.getRandomNumber(100)< 10)
-        {
-            turn()Greenfoot.getRandomNumber(90) - 45);
-        }*/
     }
     
     public void look()
@@ -42,17 +38,10 @@ public class enemy_1 extends Actor
         
         bullet = getOneObjectAtOffset(0, 0, bullet.class);
         enemy_1 = getOneObjectAtOffset(0, 0, enemy_1.class);
-        if (time == 150)
+        if (time >= 150)
         {
             bullet();
             time = 0;
-        }
-        if (bullet != enemy_1)
-        {
-            World world;
-            world = getWorld();
-            world.removeObject(bullet);
-            world.removeObject(this);
         }
     }
     

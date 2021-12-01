@@ -32,14 +32,6 @@ public class enemy_2 extends Actor
             bullet();
             time = 0;
         }
-        
-        if (bullet != enemy_2)
-        {
-            World world;
-            world = getWorld();
-            world.removeObject(bullet);
-            world.removeObject(this);
-        }
     }
     
     public void bullet()

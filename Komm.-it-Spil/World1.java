@@ -13,7 +13,6 @@ public class World1 extends World
         for(enemy_bullet thisEnemyBullet : myEnemy_BulletList){
             System.out.print("*");
         }
-        System.out.println("B");
         
         //List of Players
         List<Player> myPlayerList = getObjects(Player.class);
@@ -21,7 +20,15 @@ public class World1 extends World
             System.out.print("P");
         }
         
-        
+        for(Player thisPlayer : myPlayerList){
+            for(enemy_bullet thisEnemyBullet : myEnemy_BulletList){
+                // thisplayer, thisenemybullet
+                if(thisPlayer.intersects(thisEnemyBullet)){
+                    System.out.print("HIT!!");
+                }
+            }
+        }
+        System.out.println();
     }
     public World1(){    
         super(800, 800, 1);

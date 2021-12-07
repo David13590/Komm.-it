@@ -13,6 +13,11 @@ public class Player extends Actor
         myCooldown = new Cooldown();
     }
     
+    public boolean intersects(Actor other)
+    {
+        return super.intersects(other);
+    }
+    
     public void act()
     {   
         int angle = getRotation();

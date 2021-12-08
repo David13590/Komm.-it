@@ -5,7 +5,7 @@ public class Player extends Actor
     //vars
     private boolean readEnter = true;
     private Cooldown myCooldown;
-    private int hp = 3;
+    private int playerHealth = 3;
    
     
     public Player()
@@ -13,9 +13,19 @@ public class Player extends Actor
         myCooldown = new Cooldown();
     }
     
+    public void takeDamage(int damage)
+    {
+        playerHealth = playerHealth - damage;
+    }
+    
     public boolean intersects(Actor other)
     {
         return super.intersects(other);
+    }
+    
+    public int getPlayerHealth()
+    {
+        return playerHealth;
     }
     
     public void act()

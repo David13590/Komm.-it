@@ -24,7 +24,8 @@ public class World1 extends World
             for(enemy_bullet thisEnemyBullet : myEnemy_BulletList){
                 // thisplayer, thisenemybullet
                 if(thisPlayer.intersects(thisEnemyBullet)){
-                    System.out.print("HIT!!");
+                    thisPlayer.takeDamage(thisEnemyBullet.getBulletDmg());
+                    System.out.print(thisPlayer.getPlayerHealth());
                 }
             }
         }

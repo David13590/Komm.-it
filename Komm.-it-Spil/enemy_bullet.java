@@ -16,14 +16,6 @@ public class enemy_bullet extends Actor
     }
     
     public int getBulletDmg(){
-        if (bulletdmg == 1)
-        {
-            bulletdmg = 0;
-            return 1;
-        }
-        else
-        { 
-            return 0;
-        }
+        return bulletdmg;
     }
 }

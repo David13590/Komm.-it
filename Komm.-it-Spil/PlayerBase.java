@@ -3,11 +3,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 abstract class PlayerBase extends Actor
 {
     private int playerHealth = 3;
+    private final int HitOffset = 35; 
     abstract BulletBase getBullet();
     
     public boolean intersects(Actor other)
     {
-        return super.intersects(other);
+        int xDist = getX() - other.getX();
+        int yDist = getY() - other.getY();
+        
+        if(xDist < HitOffset && xDist > -HitOffset && yDist < HitOffset && yDist > -HitOffset)
+        {
+            return true;
+        }
+        
+        return false;
     }
     
     public void takeDamage(int damage)

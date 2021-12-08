@@ -24,9 +24,6 @@ public class World1 extends World
                 this.removeObject(thisPlayer);
             }
         }
-        System.out.println();
-        
-        
     }
     public World1(){    
         super(800, 800, 1);
@@ -34,7 +31,6 @@ public class World1 extends World
     }
     public void spawn(){
         addObject(new Player(),150,150);
-        System.out.println("spawn");
         while (addenemy_1 < 1)
         {
             addObject(new enemy_1(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));

@@ -25,6 +25,6 @@ abstract class PlayerBase extends Actor
         BulletBase bullet = getBullet();
         getWorld().addObject(bullet, getX(), getY());  //indsætter  ved cordinaterne
         bullet.setRotation(getRotation());             //sætter rotation 
-        bullet.move(55);
+        bullet.move(80);
     }
 }

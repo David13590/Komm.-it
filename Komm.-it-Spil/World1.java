@@ -9,27 +9,9 @@ public class World1 extends World
     
     public void act(){
         // Check player hit by bullet
-        for(Player thisPlayer : getObjects(Player.class)){
-            for(enemy_bullet thisEnemyBullet : getObjects(enemy_bullet.class)){
-                // thisplayer, thisenemybullet
-                if(thisPlayer.intersects(thisEnemyBullet)){
-                    thisPlayer.takeDamage(thisEnemyBullet.getBulletDmg());
-                    System.out.print(thisPlayer.getPlayerHealth());
-                    this.removeObject(thisEnemyBullet);
-                }
-            }
-            //Check if player is dead
-            if(thisPlayer.getPlayerHealth() < 1)
-            { 
-                this.removeObject(thisPlayer);
-            }
-        }
-        System.out.println();
-        
-        // Check enemy hit by bullet
-        for(enemy_1 thisPlayer : getObjects(enemy_1.class)){
-            for(bullet thisBullet : getObjects(bullet.class)){
-                // thisEnemy, thisBullet
+        for(PlayerBase thisPlayer : getObjects(PlayerBase.class)){
+            for(BulletBase thisBullet : getObjects(BulletBase.class)){
+                // thisPlayer, thisBullet
                 if(thisPlayer.intersects(thisBullet)){
                     thisPlayer.takeDamage(thisBullet.getBulletDmg());
                     System.out.print(thisPlayer.getPlayerHealth());
@@ -42,6 +24,9 @@ public class World1 extends World
                 this.removeObject(thisPlayer);
             }
         }
+        System.out.println();
+        
+        
     }
     public World1(){    
         super(800, 800, 1);

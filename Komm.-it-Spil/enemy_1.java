@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public class enemy_1 extends Actor
 {
-    int time;
+    int cooldownTime;
     private int playerHealth = 3;
     
     public void act()
@@ -47,17 +47,17 @@ public class enemy_1 extends Actor
     
     public void shoot()
     {
-        time++;
+        cooldownTime++;
         
         Actor bullet;
         Actor enemy_1;
         
         bullet = getOneObjectAtOffset(0, 0, bullet.class);
         enemy_1 = getOneObjectAtOffset(0, 0, enemy_1.class);
-        if (time >= 150)
+        if (cooldownTime >= 150)
         {
             bullet();
-            time = 0;
+            cooldownTime = 0;
         }
     }
     

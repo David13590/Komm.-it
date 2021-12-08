@@ -25,6 +25,23 @@ public class World1 extends World
             }
         }
         System.out.println();
+        
+        // Check enemy hit by bullet
+        for(enemy_1 thisPlayer : getObjects(enemy_1.class)){
+            for(bullet thisBullet : getObjects(bullet.class)){
+                // thisEnemy, thisBullet
+                if(thisPlayer.intersects(thisBullet)){
+                    thisPlayer.takeDamage(thisBullet.getBulletDmg());
+                    System.out.print(thisPlayer.getPlayerHealth());
+                    this.removeObject(thisBullet);
+                }
+            }
+            //Check if player is dead
+            if(thisPlayer.getPlayerHealth() < 1)
+            { 
+                this.removeObject(thisPlayer);
+            }
+        }
     }
     public World1(){    
         super(800, 800, 1);

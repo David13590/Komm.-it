@@ -9,8 +9,7 @@ public class World1 extends World
     
     public void act(){
         //List of enemy_bullets
-        List<enemy_bullet> myEnemy_BulletList = getObjects(enemy_bullet.class);
-        for(enemy_bullet thisEnemyBullet : myEnemy_BulletList){
+        for(enemy_bullet thisEnemyBullet : getObjects(enemy_bullet.class)){
             System.out.print("*");
         }
         
@@ -21,12 +20,17 @@ public class World1 extends World
         }
         
         for(Player thisPlayer : myPlayerList){
-            for(enemy_bullet thisEnemyBullet : myEnemy_BulletList){
+            for(enemy_bullet thisEnemyBullet : getObjects(enemy_bullet.class)){
                 // thisplayer, thisenemybullet
                 if(thisPlayer.intersects(thisEnemyBullet)){
                     thisPlayer.takeDamage(thisEnemyBullet.getBulletDmg());
                     System.out.print(thisPlayer.getPlayerHealth());
+                    this.removeObject(thisEnemyBullet);
                 }
+            }
+            if(thisPlayer.getPlayerHealth() < 1)
+            { 
+                this.removeObject(thisPlayer);
             }
         }
         System.out.println();

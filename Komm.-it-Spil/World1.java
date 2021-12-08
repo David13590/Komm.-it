@@ -8,18 +8,8 @@ public class World1 extends World
     private int addenemy_3 = 0;
     
     public void act(){
-        //List of enemy_bullets
-        for(enemy_bullet thisEnemyBullet : getObjects(enemy_bullet.class)){
-            System.out.print("*");
-        }
-        
-        //List of Players
-        List<Player> myPlayerList = getObjects(Player.class);
-        for(Player thisPlayer : myPlayerList){
-            System.out.print("P");
-        }
-        
-        for(Player thisPlayer : myPlayerList){
+        // Check player hit by bullet
+        for(Player thisPlayer : getObjects(Player.class)){
             for(enemy_bullet thisEnemyBullet : getObjects(enemy_bullet.class)){
                 // thisplayer, thisenemybullet
                 if(thisPlayer.intersects(thisEnemyBullet)){
@@ -28,6 +18,7 @@ public class World1 extends World
                     this.removeObject(thisEnemyBullet);
                 }
             }
+            //Check if player is dead
             if(thisPlayer.getPlayerHealth() < 1)
             { 
                 this.removeObject(thisPlayer);

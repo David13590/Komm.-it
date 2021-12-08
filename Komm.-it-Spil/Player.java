@@ -1,31 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Player extends Actor
+public class Player extends PlayerBase
 {
     //vars
     private boolean readEnter = true;
     private Cooldown myCooldown;
-    private int playerHealth = 3;
+    
    
     
     public Player()
     {
         myCooldown = new Cooldown();
-    }
-    
-    public void takeDamage(int damage)
-    {
-        playerHealth = playerHealth - damage;
-    }
-    
-    public boolean intersects(Actor other)
-    {
-        return super.intersects(other);
-    }
-    
-    public int getPlayerHealth()
-    {
-        return playerHealth;
     }
     
     public void act()

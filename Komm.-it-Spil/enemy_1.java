@@ -1,9 +1,8 @@
 import greenfoot.*;
 
-public class enemy_1 extends Actor
+public class enemy_1 extends PlayerBase
 {
     int cooldownTime;
-    private int playerHealth = 3;
     
     public void act()
     {
@@ -16,22 +15,7 @@ public class enemy_1 extends Actor
     {
         move(1);
     }
-    
-    public void takeDamage(int damage)
-    {
-        playerHealth = playerHealth - damage;
-    }
-    
-    public boolean intersects(Actor other)
-    {
-        return super.intersects(other);
-    }
-    
-    public int getPlayerHealth()
-    {
-        return playerHealth;
-    }
-    
+   
     public void look()
     {
         if (getWorld().getObjects(Player.class).size() != 0)

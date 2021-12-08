@@ -70,12 +70,8 @@ public class Player extends PlayerBase
         }
     }
     
-    public void bullet()
+    BulletBase getBullet()
     {
-        bullet bullet = new bullet();
-        getWorld().addObject(bullet, getX(), getY());  //indsætter  ved cordinaterne
-        bullet.setRotation(getRotation());             //sætter rotation 
-        bullet.move(55);
+       return new bullet(20); 
     }
-    
 }

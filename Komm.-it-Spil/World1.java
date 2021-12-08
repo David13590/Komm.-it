@@ -55,11 +55,7 @@ public class World1 extends World
             addObject(new enemy_1(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));
             addenemy_1++;
         }
-        while (addenemy_2 < 0)
-        {
-            addObject(new enemy_2(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));
-            addenemy_2++;
-        }
+        
         while (addenemy_3 < 1)
         {
             addObject(new enemy_3(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));

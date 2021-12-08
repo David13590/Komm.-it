@@ -45,10 +45,8 @@ public class enemy_1 extends PlayerBase
         }
     }
     
-    public void bullet()
+    BulletBase getBullet()
     {
-        enemy_bullet enemy_bullet = new enemy_bullet();
-        getWorld().addObject(enemy_bullet, getX(), getY());
-        enemy_bullet.setRotation(getRotation()); 
+       return new enemy_bullet(7); 
     }
 }

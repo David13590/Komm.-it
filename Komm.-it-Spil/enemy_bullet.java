@@ -1,21 +1,10 @@
 import greenfoot.*;
 
-public class enemy_bullet extends Actor
+public class enemy_bullet extends BulletBase
 {
-    private int bulletdmg = 1;
     
-    public void act()
-    {
-        move(7);
-           
-        if (isAtEdge())
-        {
-            getWorld().removeObject(this);
-            return;
-        }
-    }
-    
-    public int getBulletDmg(){
-        return bulletdmg;
-    }
+    public enemy_bullet(int speed){
+        super (speed);
+    } 
+
 }

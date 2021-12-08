@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class PlayerBase extends Actor
+abstract class PlayerBase extends Actor
 {
     private int playerHealth = 3;
-     
+    abstract BulletBase getBullet();
     
     public boolean intersects(Actor other)
     {
@@ -18,5 +18,13 @@ public class PlayerBase extends Actor
     public int getPlayerHealth()
     {
         return playerHealth;
+    }
+    
+    public void bullet()
+    {
+        BulletBase bullet = getBullet();
+        getWorld().addObject(bullet, getX(), getY());  //indsætter  ved cordinaterne
+        bullet.setRotation(getRotation());             //sætter rotation 
+        bullet.move(55);
     }
 }

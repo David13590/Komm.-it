@@ -1,72 +1,20 @@
 import greenfoot.*;
 
-public class enemy_3 extends Actor
+public class enemy_3 extends PlayerBase
 {
     int time;
     public void act()
     {
         movement();
-        dance();
+        look();
     }
     
     public void movement()
     {
-        int enemyX = 0;
-        int enemyY = 0;
-        int PlayerX = 0;
-        int PlayerY = 0;
-        int angle = getRotation();
-        if (getWorld().getObjects(Player.class).size() != 0)
-        {
-            Actor M = (Actor)getWorld().getObjects(Player.class).get(0);
-            PlayerX = M.getX();
-            PlayerY = M.getY();
-        }
-
-        if (getWorld().getObjects(enemy_3.class).size() != 0)
-        {
-            Actor E = (Actor)getWorld().getObjects(enemy_3.class).get(0);
-            enemyX = getX();
-            enemyY = getY();
-        }
-        
-        if (PlayerX > enemyX)
-        {
-            setLocation(enemyX+1, enemyY);
-        }
-        if (PlayerX < enemyX)
-        {
-            setLocation(enemyX-1, enemyY);
-        }
-        if (PlayerY > enemyY)
-        {
-            setLocation(enemyX, enemyY+1);
-        }
-        if (PlayerY < enemyY)
-        {
-            setLocation(enemyX, enemyY-1);
-        }
-        
-        if (angle == 45)
-        {
-            setLocation(enemyX+2, enemyY-2);
-            setRotation(0);
-        }
-        if (angle == 135)
-        {
-            setLocation(enemyX-2, enemyY-2);
-        }
-        if (angle == 225)
-        {
-            setLocation(enemyX-2, enemyY+2);
-        }
-        if (angle == 315)
-        {
-            setLocation(enemyX+2, enemyY+2);
-        }
+        move(1);
     }
     
-    public void dance()
+    public void look()
     {
         if (getWorld().getObjects(Player.class).size() != 0)
         {
@@ -77,5 +25,10 @@ public class enemy_3 extends Actor
         {
             turn(5);
         }
+    }
+    
+    BulletBase getBullet()
+    {
+       return null; 
     }
 }

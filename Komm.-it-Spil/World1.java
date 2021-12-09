@@ -8,22 +8,10 @@ public class World1 extends World
     private int addenemy_3 = 0;
     
     public void act(){
-        // Check player hit by bullet
-        for(PlayerBase thisPlayer : getObjects(PlayerBase.class)){
-            for(BulletBase thisBullet : getObjects(BulletBase.class)){
-                // thisPlayer, thisBullet
-                if(thisPlayer.intersects(thisBullet)){
-                    thisPlayer.takeDamage(thisBullet.getBulletDmg());
-                    this.removeObject(thisBullet);
-                }
-            }
-            //Check if player is dead
-            if(thisPlayer.getPlayerHealth() < 1)
-            { 
-                this.removeObject(thisPlayer);
-            }
-        }
+        bulletHit();
     }
+    
+    
     public World1(){    
         super(800, 800, 1);
         spawn();
@@ -40,6 +28,24 @@ public class World1 extends World
         {
             addObject(new enemy_3(), Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(800));
             addenemy_3++;
+        }
+    }
+    
+    private void bulletHit(){
+        // Check player hit by bullet
+        for(PlayerBase thisPlayer : getObjects(PlayerBase.class)){
+            for(BulletBase thisBullet : getObjects(BulletBase.class)){
+                // thisPlayer, thisBullet
+                if(thisPlayer.intersects(thisBullet)){
+                    thisPlayer.takeDamage(thisBullet.getBulletDmg());
+                    this.removeObject(thisBullet);
+                }
+            }
+            //Check if player is dead
+            if(thisPlayer.getPlayerHealth() < 1)
+            { 
+                this.removeObject(thisPlayer);
+            }
         }
     }
 }

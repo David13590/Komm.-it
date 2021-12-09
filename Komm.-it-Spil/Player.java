@@ -6,8 +6,6 @@ public class Player extends PlayerBase
     private boolean readEnter = true;
     private Cooldown myCooldown;
     
-   
-    
     public Player()
     {
         myCooldown = new Cooldown();

@@ -14,7 +14,6 @@ public class World1 extends World
                 // thisPlayer, thisBullet
                 if(thisPlayer.intersects(thisBullet)){
                     thisPlayer.takeDamage(thisBullet.getBulletDmg());
-                    System.out.print(thisPlayer.getPlayerHealth());
                     this.removeObject(thisBullet);
                 }
             }
